@@ -14,5 +14,20 @@ def symbol_price(symbol):
     # Print it out
     print(symbol + ' : ' + price)
 
-symbol_price('BTC/USD')
-symbol_price('VEN/USD')
+def find_all_coin_prices():
+    # Load the Coin Market Cap exchange
+    coinmarketcap = ccxt.coinmarketcap()
+
+    # Load the market for Coin Market Cap
+    markets = coinmarketcap.load_markets()
+
+    for symbol in markets:
+        # Only check USD coins
+        if (symbol[-3:] == 'USD'):
+            price = str(markets[symbol]['info']['price_usd'])
+            print(symbol + ' : ' + price)
+
+find_all_coin_prices()
+
+# symbol_price('BTC/USD')
+# symbol_price('VEN/USD')
