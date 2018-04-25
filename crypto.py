@@ -27,7 +27,4 @@ def find_all_coin_prices():
             price = str(markets[symbol]['info']['price_usd'])
             print(symbol + ' : ' + price)
 
-find_all_coin_prices()
-
-# symbol_price('BTC/USD')
-# symbol_price('VEN/USD')
+symbol_price('VEN/USD')
