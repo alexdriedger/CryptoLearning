@@ -1,14 +1,18 @@
 import ccxt
 
-# Load the Coin Market Cap exchange
-coinmarketcap = ccxt.coinmarketcap()
+def symbol_price(symbol):
 
-# Load the market for Coin Market Cap
-markets = coinmarketcap.load_markets()
+    # Load the Coin Market Cap exchange
+    coinmarketcap = ccxt.coinmarketcap()
 
-# Get the price of bitcoin
-price = markets['BTC/USD']['info']['price_usd']
+    # Load the market for Coin Market Cap
+    markets = coinmarketcap.load_markets()
 
-# Print it out
-print(price)
+    # Get the price of bitcoin
+    price = markets[symbol]['info']['price_usd']
 
+    # Print it out
+    print(symbol + ' : ' + price)
+
+symbol_price('BTC/USD')
+symbol_price('VEN/USD')
